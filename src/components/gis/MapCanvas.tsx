@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import maplibregl from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import * as turf from "@turf/turf";
 import type { Feature, FeatureCollection, Polygon } from "geojson";
@@ -138,7 +138,7 @@ export function MapCanvas(props: MapCanvasProps) {
       sync();
     });
 
-    map.on("click", (event) => {
+    map.on("click", (event: maplibregl.MapMouseEvent) => {
       const p = handlersRef.current;
       const lngLat: [number, number] = [event.lngLat.lng, event.lngLat.lat];
       if (p.drawMode !== "none") {
