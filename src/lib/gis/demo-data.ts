@@ -63,10 +63,10 @@ export const ADMIN_TREE: AdminUnit[] = [
 export function squareAround(center: [number, number], sideKm: number): Feature<Polygon> {
   const half = sideKm / 2;
   const pt = turf.point(center);
-  const west = turf.destination(pt, half, -90, { units: "kilometers" }).geometry.coordinates[0];
-  const east = turf.destination(pt, half, 90, { units: "kilometers" }).geometry.coordinates[0];
-  const south = turf.destination(pt, half, 180, { units: "kilometers" }).geometry.coordinates[1];
-  const north = turf.destination(pt, half, 0, { units: "kilometers" }).geometry.coordinates[1];
+  const west = turf.destination(pt, half, -90, { units: "kilometers" }).geometry.coordinates[0] as number;
+  const east = turf.destination(pt, half, 90, { units: "kilometers" }).geometry.coordinates[0] as number;
+  const south = turf.destination(pt, half, 180, { units: "kilometers" }).geometry.coordinates[1] as number;
+  const north = turf.destination(pt, half, 0, { units: "kilometers" }).geometry.coordinates[1] as number;
   return turf.polygon([
     [
       [west, south],
