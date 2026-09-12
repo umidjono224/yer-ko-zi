@@ -101,7 +101,7 @@ function MonitoringPage() {
 
   const previewAoi: Feature<Polygon> | null = useMemo(() => {
     const center = mahallas.find((m) => m.name === mahalla)?.center;
-    return center ? squareAround(center, 1.4) : null;
+    return center ? squareAround(center, 0.6) : null;
   }, [mahalla, mahallas]);
 
   const drawPolygon: Feature<Polygon> | null = useMemo(() => {
