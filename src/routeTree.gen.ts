@@ -10,33 +10,79 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicSatelliteSearchRouteImport } from './routes/api/public/satellite/search'
+import { Route as ApiPublicSatelliteProductIdIndexRouteImport } from './routes/api/public/satellite/$productId/index'
+import { Route as ApiPublicSatelliteProductIdAssetsRouteImport } from './routes/api/public/satellite/$productId/assets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicSatelliteSearchRoute =
+  ApiPublicSatelliteSearchRouteImport.update({
+    id: '/api/public/satellite/search',
+    path: '/api/public/satellite/search',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicSatelliteProductIdIndexRoute =
+  ApiPublicSatelliteProductIdIndexRouteImport.update({
+    id: '/api/public/satellite/$productId/',
+    path: '/api/public/satellite/$productId/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicSatelliteProductIdAssetsRoute =
+  ApiPublicSatelliteProductIdAssetsRouteImport.update({
+    id: '/api/public/satellite/$productId/assets',
+    path: '/api/public/satellite/$productId/assets',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/satellite/search': typeof ApiPublicSatelliteSearchRoute
+  '/api/public/satellite/$productId/assets': typeof ApiPublicSatelliteProductIdAssetsRoute
+  '/api/public/satellite/$productId/': typeof ApiPublicSatelliteProductIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/satellite/search': typeof ApiPublicSatelliteSearchRoute
+  '/api/public/satellite/$productId/assets': typeof ApiPublicSatelliteProductIdAssetsRoute
+  '/api/public/satellite/$productId': typeof ApiPublicSatelliteProductIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/satellite/search': typeof ApiPublicSatelliteSearchRoute
+  '/api/public/satellite/$productId/assets': typeof ApiPublicSatelliteProductIdAssetsRoute
+  '/api/public/satellite/$productId/': typeof ApiPublicSatelliteProductIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/api/public/satellite/search'
+    | '/api/public/satellite/$productId/assets'
+    | '/api/public/satellite/$productId/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/api/public/satellite/search'
+    | '/api/public/satellite/$productId/assets'
+    | '/api/public/satellite/$productId'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/public/satellite/search'
+    | '/api/public/satellite/$productId/assets'
+    | '/api/public/satellite/$productId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicSatelliteSearchRoute: typeof ApiPublicSatelliteSearchRoute
+  ApiPublicSatelliteProductIdAssetsRoute: typeof ApiPublicSatelliteProductIdAssetsRoute
+  ApiPublicSatelliteProductIdIndexRoute: typeof ApiPublicSatelliteProductIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +94,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/satellite/search': {
+      id: '/api/public/satellite/search'
+      path: '/api/public/satellite/search'
+      fullPath: '/api/public/satellite/search'
+      preLoaderRoute: typeof ApiPublicSatelliteSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/satellite/$productId/': {
+      id: '/api/public/satellite/$productId/'
+      path: '/api/public/satellite/$productId'
+      fullPath: '/api/public/satellite/$productId/'
+      preLoaderRoute: typeof ApiPublicSatelliteProductIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/satellite/$productId/assets': {
+      id: '/api/public/satellite/$productId/assets'
+      path: '/api/public/satellite/$productId/assets'
+      fullPath: '/api/public/satellite/$productId/assets'
+      preLoaderRoute: typeof ApiPublicSatelliteProductIdAssetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicSatelliteSearchRoute: ApiPublicSatelliteSearchRoute,
+  ApiPublicSatelliteProductIdAssetsRoute:
+    ApiPublicSatelliteProductIdAssetsRoute,
+  ApiPublicSatelliteProductIdIndexRoute: ApiPublicSatelliteProductIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
