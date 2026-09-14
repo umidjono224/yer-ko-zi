@@ -10,33 +10,171 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicDiagnosticsRouteImport } from './routes/api/public/diagnostics'
+import { Route as ApiPublicCadastreLayersRouteImport } from './routes/api/public/cadastre/layers'
+import { Route as ApiPublicCadastreQueryRouteImport } from './routes/api/public/cadastre/query'
+import { Route as ApiPublicCadastreServicesRouteImport } from './routes/api/public/cadastre/services'
+import { Route as ApiPublicCadastreStatusRouteImport } from './routes/api/public/cadastre/status'
+import { Route as ApiPublicGeocodeReverseRouteImport } from './routes/api/public/geocode/reverse'
+import { Route as ApiPublicGeocodeSearchRouteImport } from './routes/api/public/geocode/search'
+import { Route as ApiPublicSatelliteSearchRouteImport } from './routes/api/public/satellite/search'
+import { Route as ApiPublicSatelliteProductIdIndexRouteImport } from './routes/api/public/satellite/$productId/index'
+import { Route as ApiPublicSatelliteProductIdAssetsRouteImport } from './routes/api/public/satellite/$productId/assets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicDiagnosticsRoute = ApiPublicDiagnosticsRouteImport.update({
+  id: '/api/public/diagnostics',
+  path: '/api/public/diagnostics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCadastreLayersRoute = ApiPublicCadastreLayersRouteImport.update({
+  id: '/api/public/cadastre/layers',
+  path: '/api/public/cadastre/layers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCadastreQueryRoute = ApiPublicCadastreQueryRouteImport.update({
+  id: '/api/public/cadastre/query',
+  path: '/api/public/cadastre/query',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCadastreServicesRoute =
+  ApiPublicCadastreServicesRouteImport.update({
+    id: '/api/public/cadastre/services',
+    path: '/api/public/cadastre/services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicCadastreStatusRoute = ApiPublicCadastreStatusRouteImport.update({
+  id: '/api/public/cadastre/status',
+  path: '/api/public/cadastre/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicGeocodeReverseRoute = ApiPublicGeocodeReverseRouteImport.update({
+  id: '/api/public/geocode/reverse',
+  path: '/api/public/geocode/reverse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicGeocodeSearchRoute = ApiPublicGeocodeSearchRouteImport.update({
+  id: '/api/public/geocode/search',
+  path: '/api/public/geocode/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicSatelliteSearchRoute =
+  ApiPublicSatelliteSearchRouteImport.update({
+    id: '/api/public/satellite/search',
+    path: '/api/public/satellite/search',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicSatelliteProductIdIndexRoute =
+  ApiPublicSatelliteProductIdIndexRouteImport.update({
+    id: '/api/public/satellite/$productId/',
+    path: '/api/public/satellite/$productId/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicSatelliteProductIdAssetsRoute =
+  ApiPublicSatelliteProductIdAssetsRouteImport.update({
+    id: '/api/public/satellite/$productId/assets',
+    path: '/api/public/satellite/$productId/assets',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/diagnostics': typeof ApiPublicDiagnosticsRoute
+  '/api/public/cadastre/layers': typeof ApiPublicCadastreLayersRoute
+  '/api/public/cadastre/query': typeof ApiPublicCadastreQueryRoute
+  '/api/public/cadastre/services': typeof ApiPublicCadastreServicesRoute
+  '/api/public/cadastre/status': typeof ApiPublicCadastreStatusRoute
+  '/api/public/geocode/reverse': typeof ApiPublicGeocodeReverseRoute
+  '/api/public/geocode/search': typeof ApiPublicGeocodeSearchRoute
+  '/api/public/satellite/search': typeof ApiPublicSatelliteSearchRoute
+  '/api/public/satellite/$productId/assets': typeof ApiPublicSatelliteProductIdAssetsRoute
+  '/api/public/satellite/$productId/': typeof ApiPublicSatelliteProductIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/diagnostics': typeof ApiPublicDiagnosticsRoute
+  '/api/public/cadastre/layers': typeof ApiPublicCadastreLayersRoute
+  '/api/public/cadastre/query': typeof ApiPublicCadastreQueryRoute
+  '/api/public/cadastre/services': typeof ApiPublicCadastreServicesRoute
+  '/api/public/cadastre/status': typeof ApiPublicCadastreStatusRoute
+  '/api/public/geocode/reverse': typeof ApiPublicGeocodeReverseRoute
+  '/api/public/geocode/search': typeof ApiPublicGeocodeSearchRoute
+  '/api/public/satellite/search': typeof ApiPublicSatelliteSearchRoute
+  '/api/public/satellite/$productId/assets': typeof ApiPublicSatelliteProductIdAssetsRoute
+  '/api/public/satellite/$productId': typeof ApiPublicSatelliteProductIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/diagnostics': typeof ApiPublicDiagnosticsRoute
+  '/api/public/cadastre/layers': typeof ApiPublicCadastreLayersRoute
+  '/api/public/cadastre/query': typeof ApiPublicCadastreQueryRoute
+  '/api/public/cadastre/services': typeof ApiPublicCadastreServicesRoute
+  '/api/public/cadastre/status': typeof ApiPublicCadastreStatusRoute
+  '/api/public/geocode/reverse': typeof ApiPublicGeocodeReverseRoute
+  '/api/public/geocode/search': typeof ApiPublicGeocodeSearchRoute
+  '/api/public/satellite/search': typeof ApiPublicSatelliteSearchRoute
+  '/api/public/satellite/$productId/assets': typeof ApiPublicSatelliteProductIdAssetsRoute
+  '/api/public/satellite/$productId/': typeof ApiPublicSatelliteProductIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/api/public/diagnostics'
+    | '/api/public/cadastre/layers'
+    | '/api/public/cadastre/query'
+    | '/api/public/cadastre/services'
+    | '/api/public/cadastre/status'
+    | '/api/public/geocode/reverse'
+    | '/api/public/geocode/search'
+    | '/api/public/satellite/search'
+    | '/api/public/satellite/$productId/assets'
+    | '/api/public/satellite/$productId/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/api/public/diagnostics'
+    | '/api/public/cadastre/layers'
+    | '/api/public/cadastre/query'
+    | '/api/public/cadastre/services'
+    | '/api/public/cadastre/status'
+    | '/api/public/geocode/reverse'
+    | '/api/public/geocode/search'
+    | '/api/public/satellite/search'
+    | '/api/public/satellite/$productId/assets'
+    | '/api/public/satellite/$productId'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/public/diagnostics'
+    | '/api/public/cadastre/layers'
+    | '/api/public/cadastre/query'
+    | '/api/public/cadastre/services'
+    | '/api/public/cadastre/status'
+    | '/api/public/geocode/reverse'
+    | '/api/public/geocode/search'
+    | '/api/public/satellite/search'
+    | '/api/public/satellite/$productId/assets'
+    | '/api/public/satellite/$productId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicDiagnosticsRoute: typeof ApiPublicDiagnosticsRoute
+  ApiPublicCadastreLayersRoute: typeof ApiPublicCadastreLayersRoute
+  ApiPublicCadastreQueryRoute: typeof ApiPublicCadastreQueryRoute
+  ApiPublicCadastreServicesRoute: typeof ApiPublicCadastreServicesRoute
+  ApiPublicCadastreStatusRoute: typeof ApiPublicCadastreStatusRoute
+  ApiPublicGeocodeReverseRoute: typeof ApiPublicGeocodeReverseRoute
+  ApiPublicGeocodeSearchRoute: typeof ApiPublicGeocodeSearchRoute
+  ApiPublicSatelliteSearchRoute: typeof ApiPublicSatelliteSearchRoute
+  ApiPublicSatelliteProductIdAssetsRoute: typeof ApiPublicSatelliteProductIdAssetsRoute
+  ApiPublicSatelliteProductIdIndexRoute: typeof ApiPublicSatelliteProductIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +186,92 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/diagnostics': {
+      id: '/api/public/diagnostics'
+      path: '/api/public/diagnostics'
+      fullPath: '/api/public/diagnostics'
+      preLoaderRoute: typeof ApiPublicDiagnosticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cadastre/layers': {
+      id: '/api/public/cadastre/layers'
+      path: '/api/public/cadastre/layers'
+      fullPath: '/api/public/cadastre/layers'
+      preLoaderRoute: typeof ApiPublicCadastreLayersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cadastre/query': {
+      id: '/api/public/cadastre/query'
+      path: '/api/public/cadastre/query'
+      fullPath: '/api/public/cadastre/query'
+      preLoaderRoute: typeof ApiPublicCadastreQueryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cadastre/services': {
+      id: '/api/public/cadastre/services'
+      path: '/api/public/cadastre/services'
+      fullPath: '/api/public/cadastre/services'
+      preLoaderRoute: typeof ApiPublicCadastreServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/cadastre/status': {
+      id: '/api/public/cadastre/status'
+      path: '/api/public/cadastre/status'
+      fullPath: '/api/public/cadastre/status'
+      preLoaderRoute: typeof ApiPublicCadastreStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/geocode/reverse': {
+      id: '/api/public/geocode/reverse'
+      path: '/api/public/geocode/reverse'
+      fullPath: '/api/public/geocode/reverse'
+      preLoaderRoute: typeof ApiPublicGeocodeReverseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/geocode/search': {
+      id: '/api/public/geocode/search'
+      path: '/api/public/geocode/search'
+      fullPath: '/api/public/geocode/search'
+      preLoaderRoute: typeof ApiPublicGeocodeSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/satellite/search': {
+      id: '/api/public/satellite/search'
+      path: '/api/public/satellite/search'
+      fullPath: '/api/public/satellite/search'
+      preLoaderRoute: typeof ApiPublicSatelliteSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/satellite/$productId/': {
+      id: '/api/public/satellite/$productId/'
+      path: '/api/public/satellite/$productId'
+      fullPath: '/api/public/satellite/$productId/'
+      preLoaderRoute: typeof ApiPublicSatelliteProductIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/satellite/$productId/assets': {
+      id: '/api/public/satellite/$productId/assets'
+      path: '/api/public/satellite/$productId/assets'
+      fullPath: '/api/public/satellite/$productId/assets'
+      preLoaderRoute: typeof ApiPublicSatelliteProductIdAssetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicDiagnosticsRoute: ApiPublicDiagnosticsRoute,
+  ApiPublicCadastreLayersRoute: ApiPublicCadastreLayersRoute,
+  ApiPublicCadastreQueryRoute: ApiPublicCadastreQueryRoute,
+  ApiPublicCadastreServicesRoute: ApiPublicCadastreServicesRoute,
+  ApiPublicCadastreStatusRoute: ApiPublicCadastreStatusRoute,
+  ApiPublicGeocodeReverseRoute: ApiPublicGeocodeReverseRoute,
+  ApiPublicGeocodeSearchRoute: ApiPublicGeocodeSearchRoute,
+  ApiPublicSatelliteSearchRoute: ApiPublicSatelliteSearchRoute,
+  ApiPublicSatelliteProductIdAssetsRoute:
+    ApiPublicSatelliteProductIdAssetsRoute,
+  ApiPublicSatelliteProductIdIndexRoute: ApiPublicSatelliteProductIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
